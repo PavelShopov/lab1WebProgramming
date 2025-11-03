@@ -1,4 +1,4 @@
-package com.example.labs1;
+package mk.ukim.finki.wp.lab;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
