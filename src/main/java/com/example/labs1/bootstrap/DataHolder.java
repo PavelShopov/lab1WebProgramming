@@ -17,8 +17,7 @@ public class DataHolder {
     public static List<Chef> chefs ;
     @Setter(AccessLevel.NONE)
     public static List<Dish> dishes;
-    @PostConstruct
-    public void init(){
+    {
         chefs = new ArrayList<>();
         dishes = new ArrayList<>();
         Dish dish1 = new Dish("Margherita Pizza", "Italian", 20);

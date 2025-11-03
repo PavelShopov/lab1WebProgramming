@@ -15,17 +15,14 @@ public class ChefServiceImpl implements ChefService  {
         this.chefRepository = chefRepository;
         this.dishRepository = dishRepository;
     }
-//Методот addDishToChef треба да го најде готвачот по chefId, да го најде јадењето по dishId, да го додаде јадењето во листата на јадења на готвачот, и потоа да го зачува готвачот преку save методот.
-//
-//DishService треба да зависи од DishRepository
     @Override
     public List<Chef> listChefs() {
-        return List.of();
+        return chefRepository.findAll();
     }
 
     @Override
     public Chef findById(Long id) {
-        return null;
+        return chefRepository.findById(id).orElse(null);
     }
 
     @Override

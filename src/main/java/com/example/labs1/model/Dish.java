@@ -18,8 +18,7 @@ public class Dish {
         this.preparationTime = preparationTime;
         this.myID = id++;
     }
-    @PostConstruct
-    public void init(){
+    {
         id = 1L;
     }
 

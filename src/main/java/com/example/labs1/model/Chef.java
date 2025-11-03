@@ -14,8 +14,7 @@ public class Chef {
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     private static Long id;
-    @PostConstruct
-    public void init() {
+    {
         id = 1L;
     }
 
