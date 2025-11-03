@@ -1,11 +1,11 @@
-package mk.ukim.finki.wp.lab.bootstrap;
+package com.example.labs1.bootstrap;
 
 import jakarta.annotation.PostConstruct;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
-import mk.ukim.finki.wp.lab.model.Chef;
-import mk.ukim.finki.wp.lab.model.Dish;
+import com.example.labs1.model.Chef;
+import com.example.labs1.model.Dish;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,12 +1,10 @@
-package mk.ukim.finki.wp.lab.repository.impl;
+package com.example.labs1.repository.impl;
 
-import mk.ukim.finki.wp.lab.bootstrap.DataHolder;
-import mk.ukim.finki.wp.lab.model.Chef;
-import mk.ukim.finki.wp.lab.model.Dish;
-import mk.ukim.finki.wp.lab.repository.DishRepository;
+import com.example.labs1.bootstrap.DataHolder;
+import com.example.labs1.model.Dish;
+import com.example.labs1.repository.DishRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class InMemoryDishRepository implements DishRepository {
 

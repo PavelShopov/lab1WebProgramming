@@ -1,6 +1,5 @@
-package mk.ukim.finki.wp.lab;
+package com.example.labs1;
 
-import jakarta.servlet.annotation.WebServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -8,7 +7,6 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @ServletComponentScan
 public class Labs1Application {
-
     public static void main(String[] args) {
         SpringApplication.run(Labs1Application.class, args);
     }

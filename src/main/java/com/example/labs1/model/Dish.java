@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.lab.model;
+package com.example.labs1.model;
 
 import jakarta.annotation.PostConstruct;
 import lombok.*;

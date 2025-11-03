@@ -1,9 +1,9 @@
-package mk.ukim.finki.wp.lab.service.impl;
+package com.example.labs1.service.impl;
 
-import mk.ukim.finki.wp.lab.model.Chef;
-import mk.ukim.finki.wp.lab.repository.ChefRepository;
-import mk.ukim.finki.wp.lab.repository.DishRepository;
-import mk.ukim.finki.wp.lab.service.ChefService;
+import com.example.labs1.model.Chef;
+import com.example.labs1.repository.ChefRepository;
+import com.example.labs1.repository.DishRepository;
+import com.example.labs1.service.ChefService;
 
 import java.util.List;
 

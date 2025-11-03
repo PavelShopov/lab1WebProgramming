@@ -1,10 +1,9 @@
-package mk.ukim.finki.wp.lab.repository.impl;
+package com.example.labs1.repository.impl;
 
-import mk.ukim.finki.wp.lab.bootstrap.DataHolder;
-import mk.ukim.finki.wp.lab.model.Chef;
-import mk.ukim.finki.wp.lab.repository.ChefRepository;
+import com.example.labs1.bootstrap.DataHolder;
+import com.example.labs1.model.Chef;
+import com.example.labs1.repository.ChefRepository;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Optional;
 

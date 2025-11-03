@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.lab.model;
+package com.example.labs1.model;
 
 import jakarta.annotation.PostConstruct;
 import lombok.*;
@@ -18,11 +18,18 @@ public class Chef {
     public void init() {
         id = 1L;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.getFirstName()+ ", LastName: " + this.getLastName()+", Bio: " + this.getBio();
+    }
+
     public Chef(String firstName, String lastName, String bio, List<Dish> dishes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.bio = bio;
         this.dishes = dishes;
         this.myID = id++;
+
     }
 }

@@ -1,6 +1,6 @@
-package mk.ukim.finki.wp.lab.repository;
+package com.example.labs1.repository;
 
-import mk.ukim.finki.wp.lab.model.Chef;
+import com.example.labs1.model.Chef;
 
 import java.util.*;
 
