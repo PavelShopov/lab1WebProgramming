@@ -13,10 +13,8 @@ public class Chef {
     private Long myID;
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private static Long id;
-    {
-        id = 1L;
-    }
+    private static Long id=1L;
+
 
     @Override
     public String toString() {

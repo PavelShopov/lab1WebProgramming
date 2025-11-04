@@ -40,23 +40,19 @@
 </header>
 <section>
     <h2>Select dish:</h2>
-    <form action="/chefDetails" method="POST">
-        <!-- Dynamically display radio buttons for each dish -->
-        <input type="radio" name="dishId" value="1"> Pasta Carbonara <br/>
-        <input type="radio" name="dishId" value="2"> Beef Wellington <br/>
-        <input type="radio" name="dishId" value="3"> Chicken Tikka Masala <br/>
-        <br/>
+    <form action="/dish" method="POST">
+        <input th:each="dish: ${dishes}" th:text="${dish.toString()}" th:value="${dish.getMyID()}" type="radio" name="dishID">
         <input type="submit" value="Add dish">
     </form>
 </section>
 <aside>
     <table>
         <tr>
-            <td><b>Chef ID</b></td>
-            <td><!-- Display selected chefId --></td>
+            <td th:text="${chef.getMyID()}" ><b></b></td>
+            <td></td>
         </tr>
         <tr>
-            <td><b>Chef Name</b></td>
+            <td th:text="${chef.getFirstName()} ${chef.getLastName()}"><b>Chef Name</b></td>
             <td><!-- Display chef name --></td>
         </tr>
     </table>

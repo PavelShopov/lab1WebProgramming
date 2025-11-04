@@ -17,10 +17,10 @@
 <body>
 <header>
     <h1>Welcome to Our Restaurant</h1>
-</header>
+</header>s
 <main>
     <h2>Choose a chef:</h2>
-    <form action="/dish" method="POST">
+    <form action="/listChefs" method="POST">
         <input th:each="chef: ${chefs}" th:text="${chef.toString()}" th:value="${chef.getMyID}" type="radio" name="chefID">
         <input type="submit" value="Submit" >
     </form>

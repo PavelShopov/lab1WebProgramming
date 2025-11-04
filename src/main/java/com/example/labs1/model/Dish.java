@@ -7,7 +7,7 @@ import lombok.*;
 public class Dish {
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private static Long id;
+    private static Long id=1L;
     private Long myID;
     String name;
     String cuisine;
@@ -18,9 +18,4 @@ public class Dish {
         this.preparationTime = preparationTime;
         this.myID = id++;
     }
-    {
-        id = 1L;
-    }
-
-
 }

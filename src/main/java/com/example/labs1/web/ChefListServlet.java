@@ -39,21 +39,14 @@ public class ChefListServlet extends HttpServlet {
                 .buildApplication(getServletContext())
                 .buildExchange(req, resp);
         WebContext context = new WebContext(webExchange);
-        List<Chef> chefs = this.chefService.listChefs();
+        List<Chef>list= chefService.listChefs();
         context.setVariable("chefs", this.chefService.listChefs());
         springTemplateEngine.process("listChefs.html", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        IWebExchange webExchange = JakartaServletWebApplication
-                .buildApplication(req.getServletContext())
-                .buildExchange(req, resp);
-
-        WebContext context = new WebContext(webExchange);
-
         String chefID = req.getParameter("chefID");
-        context.setVariable("chefID", chefID);
-        resp.sendRedirect("/dish");
-    }
+        resp.sendRedirect("/dish?chefID=" + chefID);
+}
 }
