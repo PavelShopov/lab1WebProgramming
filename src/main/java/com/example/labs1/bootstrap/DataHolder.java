@@ -6,18 +6,22 @@ import lombok.Data;
 import lombok.Setter;
 import com.example.labs1.model.Chef;
 import com.example.labs1.model.Dish;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Data
+@Component
 public class DataHolder {
     @Setter(AccessLevel.NONE)
     public static List<Chef> chefs ;
     @Setter(AccessLevel.NONE)
     public static List<Dish> dishes;
-    {
+
+    @PostConstruct
+    void init(){
         chefs = new ArrayList<>();
         dishes = new ArrayList<>();
         Dish dish1 = new Dish("Margherita Pizza", "Italian", 20);
@@ -25,6 +29,11 @@ public class DataHolder {
         Dish dish3 = new Dish("Pad Thai", "Thai", 25);
         Dish dish4 = new Dish("Sushi Rolls (Nigiri)", "Japanese", 40);
         Dish dish5 = new Dish("French Onion Soup", "French", 60);
+        dishes.add(dish1);
+        dishes.add(dish2);
+        dishes.add(dish3);
+        dishes.add(dish4);
+        dishes.add(dish5);
         chefs.add(new Chef(
                         "Giacomo",
                         "Rossi",

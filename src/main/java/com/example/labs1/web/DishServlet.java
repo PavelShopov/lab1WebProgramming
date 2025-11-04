@@ -27,10 +27,10 @@ public class DishServlet extends HttpServlet {
     private final DishService dishService;
     private final ChefService chefService;
     private final SpringTemplateEngine springTemplateEngine;
-    public DishServlet( SpringTemplateEngine springTemplateEngine) {
-        this.dishService = new DishServiceImpl(new InMemoryDishRepository());
-        this.chefService = new ChefServiceImpl(new InMemoryChefRepository(), new InMemoryDishRepository());
-        this.springTemplateEngine = springTemplateEngine;
+    public DishServlet( SpringTemplateEngine springTemplateEngine,ChefService chefService,DishService dishService) {
+        this.dishService = dishService;
+        this.chefService = chefService;
+    this.springTemplateEngine = springTemplateEngine;
     }
 
     @Override
@@ -40,7 +40,8 @@ public class DishServlet extends HttpServlet {
                 .buildExchange(req, resp);
         WebContext context = new WebContext(webExchange);
 
-        context.setVariable("chef", req.getParameter("chefID") == null ? null : chefService.findById(Long.parseLong(req.getParameter("chefID"))) );
+        context.setVariable("chef", this.chefService.findById(Long.parseLong(req.getParameter("chefID"))) );
+        context.setVariable("chefID", req.getParameter("chefID") );
         context.setVariable("dishes", this.dishService.listDishes());
         springTemplateEngine.process("dishesList.html", context, resp.getWriter());
     }
@@ -48,7 +49,7 @@ public class DishServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String dishID = req.getParameter("dishID");
-        Chef chef = (Chef) req.getAttribute("chef");
-        resp.sendRedirect("/chefDetails?chefID=" + chef.getMyID()+"&dishID=" + dishID);
+
+        resp.sendRedirect("/chefDetails?chefID=" +req.getParameter("chefID")+"&dishID=" + dishID );
     }
 }

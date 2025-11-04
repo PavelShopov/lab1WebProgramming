@@ -4,9 +4,10 @@ import com.example.labs1.model.Chef;
 import com.example.labs1.repository.ChefRepository;
 import com.example.labs1.repository.DishRepository;
 import com.example.labs1.service.ChefService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ChefServiceImpl implements ChefService  {
     public final ChefRepository chefRepository;
     public final DishRepository dishRepository;

@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.example.labs1.service.ChefService;
+import org.springframework.context.annotation.Bean;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.web.IWebExchange;
@@ -25,22 +26,22 @@ public class ChefListServlet extends HttpServlet {
     private final ChefService chefService;
     private final SpringTemplateEngine springTemplateEngine;
 
-    public ChefListServlet(SpringTemplateEngine springTemplateEngine) {
-        this.chefService = new ChefServiceImpl(new InMemoryChefRepository(), new InMemoryDishRepository());
+    public ChefListServlet(SpringTemplateEngine springTemplateEngine, ChefService chefService) {
+        this.chefService = chefService;
         this.springTemplateEngine = springTemplateEngine;
+
     }
-    @Override
-            public void init() throws ServletException {
-        DataHolder dataHolder = new DataHolder();
-    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         IWebExchange webExchange = JakartaServletWebApplication
                 .buildApplication(getServletContext())
                 .buildExchange(req, resp);
         WebContext context = new WebContext(webExchange);
-        List<Chef>list= chefService.listChefs();
         context.setVariable("chefs", this.chefService.listChefs());
+        context.setVariable("chefs", this.chefService.listChefs());
+        context.setVariable("dishes", this.chefService.listChefs());
+
         springTemplateEngine.process("listChefs.html", context, resp.getWriter());
     }
 
