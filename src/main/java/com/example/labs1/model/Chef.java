@@ -3,6 +3,7 @@ package com.example.labs1.model;
 import jakarta.annotation.PostConstruct;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 @Data
 public class Chef {
@@ -15,7 +16,9 @@ public class Chef {
     @Setter(AccessLevel.NONE)
     private static Long id=1L;
 
-
+    public void AddDish(Dish dish){
+        dishes.add(dish);
+    }
     @Override
     public String toString() {
         return "Name: " + this.getFirstName()+ ", LastName: " + this.getLastName()+", Bio: " + this.getBio();
@@ -27,6 +30,6 @@ public class Chef {
         this.bio = bio;
         this.dishes = dishes;
         this.myID = id++;
-
+        this.dishes= new ArrayList<Dish>();
     }
 }
