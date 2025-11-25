@@ -13,7 +13,10 @@ public class Dish {
     String cuisine;
     String dishId;
     int preparationTime;
-
+    private int likeCount;
+    public void addLike(){
+        likeCount++;
+    }
     public Dish(String name, String cuisine, int preparationTime) {
         this.name = name;
         this.cuisine = cuisine;
