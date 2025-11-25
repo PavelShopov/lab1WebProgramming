@@ -1,5 +1,7 @@
 package com.example.labs1.web;
 
+import com.example.labs1.model.Chef;
+import com.example.labs1.model.Dish;
 import com.example.labs1.service.ChefService;
 import com.example.labs1.service.DishService;
 import jakarta.servlet.ServletException;
@@ -30,10 +32,7 @@ public class ChefDetailsServlet extends HttpServlet {
                 .buildApplication(getServletContext())
                 .buildExchange(req, resp);
         WebContext context = new WebContext(webExchange);
-
-        context.setVariable("chef", this.chefService.findById(Long.parseLong(req.getParameter("chefID"))) );
-        context.setVariable("chefID", req.getParameter("chefID"));
-        context.setVariable("dishes", this.dishService.listDishes());
+        context.setVariable("chef", (Chef) req.getSession().getAttribute("chef"));
         springTemplateEngine.process("dishesList.html", context, resp.getWriter());
     }
     @Override
