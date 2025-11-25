@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="Default">Dish Form</title>
+    <style>
+        label { display: block; margin-top: 10px; }
+        input { width: 300px; padding: 5px; margin-top: 5px; }
+        .form-group { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<h1 th:text="${dish.id} ? 'Edit Dish' : 'Add New Dish'">Dish Form</h1>
+
+<form th:action="${actionUrl}" method="POST" >
+
+    <div class="form-group">
+        <label for="dishId">Dish ID (String):</label>
+        <input type="text" id="dishId" name="dishId"  th:each="d: ${dishes}" th:text="${d.getDishes()}"  required>
+    </div>
+
+
+
+    <button type="submit" th:text="${dish.id} ? 'Save Changes' : 'Add Dish'">Submit</button>
+    <a th:href="@{/dishes}">Cancel</a>
+
+</form>
+
+</body>
+</html>

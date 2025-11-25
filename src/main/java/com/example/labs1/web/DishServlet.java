@@ -26,11 +26,8 @@ import java.util.List;
 
 @WebServlet(name="DishServlet",urlPatterns = "/dish")
 public class DishServlet extends HttpServlet {
-    @Autowired
     private final DishService dishService;
-    @Autowired
     private final ChefService chefService;
-    @Autowired
     private final SpringTemplateEngine springTemplateEngine;
 
     public DishServlet( SpringTemplateEngine springTemplateEngine,ChefService chefService,DishService dishService) {
