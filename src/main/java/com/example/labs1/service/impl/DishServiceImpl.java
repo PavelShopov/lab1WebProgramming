@@ -9,11 +9,9 @@ import java.util.List;
 @Service
 public class DishServiceImpl implements DishService {
     public final DishRepository dishRepository;
-    private final DishService dishService;
 
-    public DishServiceImpl(DishRepository dishRepository, DishService dishService) {
+    public DishServiceImpl(DishRepository dishRepository) {
         this.dishRepository = dishRepository;
-        this.dishService = dishService;
     }
 
     @Override

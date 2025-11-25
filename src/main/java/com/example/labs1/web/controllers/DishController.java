@@ -1,10 +1,9 @@
-package com.example.labs1.Controller;
+package com.example.labs1.web.controllers;
 import com.example.labs1.model.Dish;
 import com.example.labs1.service.DishService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -96,12 +95,11 @@ public class DishController {
         this.dishService.update(dishId, name, cuisine, preparationTime);
         return "redirect:/dishes";
     }
+    @PostMapping("dishes/like")
+    public void like(String id){
+        this.dishService.findByDishId(id).addLike();
+    }
 
-    /**
-     * 4.4 Бришење јадење
-     * @param id ID на јадењето што се брише.
-     * @return Редирект кон /dishes.
-     */
     @PostMapping("/delete/{id}") // Одговара на mapping: /dishes/delete/{id}
     public String deleteDish(@PathVariable Long id) {
         dishService.delete(id);
