@@ -1,20 +1,31 @@
 package com.example.labs1.model;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 @Data
+@Entity
+@Table(name = "chefs")
 public class Chef {
-    private String firstName;
-    private String lastName;
-    private String bio;
-    private List<Dish> dishes;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long myID;
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
+
     private static Long id=1L;
+    private String firstName;
+    private String lastName;
+    private String bio;
+    @OneToMany(mappedBy = "chef", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Dish> dishes;
+
+    public Chef() {
+
+    }
 
     public void AddDish(Dish dish){
         dishes.add(dish);
